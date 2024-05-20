@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: car_rental_test_development
+  username: <%= ENV.fetch("POSTGRES_USERNAME") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  host: <%= ENV.fetch("POSTGRES_HOST") %>
+  port: <%= ENV.fetch("POSTGRES_PORT") %>
+
+test:
+  <<: *default
+  database: car_rental_test_test
+  username: <%= ENV.fetch("POSTGRES_USERNAME") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  host: <%= ENV.fetch("POSTGRES_HOST") %>
+  port: <%= ENV.fetch("POSTGRES_PORT") %>
+
+production:
+  <<: *default
+  database: car_rental_test_production
+  username: <%= ENV.fetch("POSTGRES_USERNAME") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  host: <%= ENV.fetch("POSTGRES_HOST") %>
+  port: <%= ENV.fetch("POSTGRES_PORT") %>
